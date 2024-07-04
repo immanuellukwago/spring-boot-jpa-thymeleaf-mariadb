@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Book To Collection</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: rgb(106, 229, 233);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add new book</h1>
+      <form
+        action="#"
+        th:object="${book}"
+        th:action="@{/save}"
+        th:method="post"
+      >
+        <input type="text" th:field="*{title}" placeholder="Book Title" /><br />
+        <p></p>
+        <input
+          type="text"
+          th:field="*{author}"
+          placeholder="Book Author"
+        /><br />
+        <p></p>
+        <input
+          type="text"
+          th:field="*{description}"
+          placeholder="Book Description"
+        /><br />
+        <p></p>
+        <input
+          type="text"
+          th:field="*{rating}"
+          placeholder="Rate Book out of Five"
+        /><br />
+        <p></p>
+        <button type="submit">Submit Book</button>
+      </form>
+      <p></p>
+      <a th:href="@{/home}">Back To Home</a>
+    </div>
+  </body>
+</html>

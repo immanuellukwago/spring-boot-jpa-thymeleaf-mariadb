@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Books Available</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: rgb(130, 231, 235);
+      }
+      img {
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body align="center">
+    <div class="container">
+      <h1>Available Books</h1>
+      <a th:href="@{/addBook}">Add A New Book</a>
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Like</th>
+            <th scope="col">Dislike</th>
+            <th scope="col">Rating Of 5</th>
+            <th scope="col">About Book</th>
+            <th scope="col">Delete Book</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="book : ${books}">
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td>
+              <a th:href="@{/like/{id}(id=${book.id})}"
+                ><img src="/thumbsUp.png" alt=""
+              /></a>
+            </td>
+            <td>
+              <a th:href="@{/dislike/{id}(id=${book.id})}"
+                ><img src="/thumbsDown.png" alt=""
+              /></a>
+            </td>
+            <td th:text="${book.rating}"></td>
+            <td><a th:href="@{/viewBook/{id}(id=${book.id})}">About</a></td>
+            <td>
+              <a th:href="@{/deleteBook/{id}(id=${book.id})}"
+                ><img src="/deleteBook.png" alt=""
+              /></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p></p>
+      <a th:href="@{/home}"></a>
+    </div>
+  </body>
+</html>
