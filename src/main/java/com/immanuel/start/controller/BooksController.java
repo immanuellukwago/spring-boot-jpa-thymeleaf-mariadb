@@ -19,7 +19,7 @@ public class BooksController {
 
     @GetMapping("/home")
     public String homePage(Model model) {
-        model.addAttribute("index", new String());
+        model.addAttribute("index", "");
         return "index";
     }
 

@@ -10,7 +10,7 @@ import com.immanuel.start.model.Books;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface BooksRepository extends JpaRepository<Books, Long>{
+public interface  BooksRepository extends JpaRepository<Books, Long>{
     
     @Transactional
     @Modifying
